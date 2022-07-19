@@ -1,30 +1,26 @@
-name: Multijob action
-
-
+name: Multijob workflow
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
-
+    branches: [main]
 
 jobs:
-  ubuntu-job:
-
+  ubuntu_job:
     runs-on: ubuntu-latest
-    steps:
-      - name: check system info ubuntu
+    steps: 
+      - name: check system info
         run: cat /etc/os-release
 
   windows-job:
     runs-on: windows-latest
     steps:
-      - name: check system info windows
+      - name: check system info
         run: systeminfo
-
+  
   macos-job:
     runs-on: macos-latest
-    steps:
-      - name: check system info macos
+    steps: 
+      - name: check system info
         run: sw_vers

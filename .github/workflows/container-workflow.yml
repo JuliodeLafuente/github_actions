@@ -1,5 +1,4 @@
-name: container action
-
+name: Container job
 
 on:
   push:
@@ -8,11 +7,11 @@ on:
     branches: [main]
 
 jobs:
-  ubuntu-job:
+  container-job:
     runs-on: ubuntu-latest
     container: unityofdisaster/node-with-angular
     steps:
       - name: check node version
         run: node -v
-      - name: check angular cli version
+      - name: check angular version
         run: ng --version

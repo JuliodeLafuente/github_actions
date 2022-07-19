@@ -1,0 +1,24 @@
+name: mariadb workflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  mariadb_test:
+    runs-on: ubuntu-latest
+    container: python
+    services:
+      mariadb_service:
+        image: unityofdisaster/custom-mariadb
+        ports: 
+          - 3306:3306
+    steps:
+      - name: checkout branch
+        uses: actions/checkout@v3
+      - name: install mariadb dependency
+        run: pip3 install mariadb
+      - name: execute python script
+        run: python mysql-test.py
